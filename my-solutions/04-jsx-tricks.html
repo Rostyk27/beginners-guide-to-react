@@ -1,0 +1,14 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.21.3/babel.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    const children = 'Hello World!';
+    const className = 'title';
+    const props = { children, className };
+    const element = <h1 id="main-title" {...props} className="new-title" />;
+    ReactDOM.render(element, root);
+  </script>
+</body>
