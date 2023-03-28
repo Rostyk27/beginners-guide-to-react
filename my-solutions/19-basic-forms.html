@@ -1,0 +1,31 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.21.3/babel.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function UsernameForm() {
+      function handleSubmit(e) {
+        e.preventDefault();
+        const username = e.target.elements.username_input.value;
+        alert(`You entered: ${username}`);
+      }
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Username:
+              <input name="username_input" type="text" />
+            </label>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      );
+    }
+
+    root.render(<UsernameForm />);
+  </script>
+</body>

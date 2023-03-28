@@ -1,0 +1,55 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.21.3/babel.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function Person({ name, onNameChange }) {
+      return (
+        <div>
+          <label>
+            Name:
+            <input value={name} onChange={onNameChange} />
+          </label>
+        </div>
+      );
+    }
+
+    function FavoriteAnimal({ animal, onAnimalChange }) {
+      return (
+        <div>
+          <label>
+            Favorite Animal:
+            <input value={animal} onChange={onAnimalChange} />
+          </label>
+        </div>
+      );
+    }
+
+    function Display({ name, animal }) {
+      return <div>{`Hey ${name}, your favorite animal is ${animal}!`}</div>;
+    }
+
+    function App() {
+      const [name, setName] = React.useState('');
+      const [animal, setAnimal] = React.useState('');
+      // const props = { name, animal };
+
+      return (
+        <form>
+          <Person name={name} onNameChange={e => setName(e.target.value)} />
+          <FavoriteAnimal
+            animal={animal}
+            onAnimalChange={e => setAnimal(e.target.value)}
+          />
+          <Display name={name} animal={animal} />
+          {/* <Display {...props} />*/}
+        </form>
+      );
+    }
+
+    root.render(<App />);
+  </script>
+</body>
